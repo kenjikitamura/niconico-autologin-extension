@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="autologin.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  </head>
+
+<body id="configBody">
+  <div class="container">
+    <h2>ニコニコ動画自動ログイン</h2>
+    ニコニコ動画へログインするためのメールアドレスとパスワードを入力し、保存ボタンを選択してください。<br>
+    設定後は、ニコニコ動画のログイン画面が表示されると、自動で入力しログインします。
+    <hr>
+
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+              <div class="controls">
+                <input type="text" id="email" placeholder="Email" style="height:30px;">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">Password</label>
+              <div class="controls">
+                <input type="password" id="password" placeholder="Password" style="height:30px;">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button class="btn btn-primary" id="saveButton">保存</button>
+              </div>
+              <br>
+              <div id="status" class="alert alert-success" style="display:none;">
+              </div>
+            </div>
+
+    </div>
+
+  </body>
+</html>

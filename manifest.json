@@ -1,0 +1,16 @@
+{
+  "name": "My First Extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Niconico auto login.",
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts":[
+    {
+      "matches":["https://secure.nicovideo.jp/secure/login_form*"],
+      "js":["jquery-1.9.1.min.js","autologin.js"]
+    }
+  ]
+}
