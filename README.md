@@ -13,3 +13,8 @@ Niconico autologin extensionをインストールした後、Chromeのメニューから「環境設定
 すると、「Niconico autologin extension」の設定画面が開くので、メールアドレスとパスワードを入力し保存ボタンを選択すると設定完了です。
 
 今後はニコニコ動画のログイン画面が表示されると、自動でログイン処理が行われます。
+
+
+サポート
+------
+Niconico autologin extensionへのバグ報告、要望などございましたら、[けんじ(@kenji1203)](https://twitter.com/kenji1203)までお願い致します。
