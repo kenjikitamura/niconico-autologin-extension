@@ -1,8 +1,8 @@
 {
-  "name": "My First Extension",
+  "name": "Niconico autologin extension",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "Niconico auto login.",
+  "description": "ニコニコ動画のログイン画面で、自動的にログインします。",
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"]
