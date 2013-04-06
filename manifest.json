@@ -1,6 +1,6 @@
 {
   "name": "Niconico autologin extension",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
   "description": "ニコニコ動画のログイン画面で、自動的にログインします。",
   "options_page": "options.html",

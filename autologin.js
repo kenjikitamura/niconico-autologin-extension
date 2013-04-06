@@ -2,16 +2,18 @@
 function saveOptions() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  localStorage["niconico_email"] = email;
-  localStorage["niconico_password"] = password;
+  localStorage["niconico_email"]         = email;
+  localStorage["niconico_password"]      = password;
+  localStorage["niconico_configured"]    = "true";
+  localStorage["niconico_helpDisplayed"] = "true";
 
   // Update status to let user know options were saved.
   var status = document.getElementById("status");
-  status.innerHTML = "保存しました。";
+  status.innerHTML = "保存しました。<br>次回からニコニコ動画のログイン画面を表示すると自動でログインを行います。";
   status.style.display = "block";
   setTimeout(function() {
     status.style.display = "none";
-  }, 2000);
+  }, 5000);
 }
 
 // Restores select box state to saved value from localStorage.
@@ -27,7 +29,7 @@ function restoreOptions() {
   document.getElementById("password").value = password;
 }
 
-function init(){
+function init(option){
   if (option["niconico_email"] && option["niconico_email"] != ""){
     email.value = option["niconico_email"];
     password.value = option["niconico_password"];
@@ -45,25 +47,21 @@ var password = document.getElementById("password")
 var loginForm = document.getElementsByTagName("form")[0]
 var wrongPass = document.getElementsByClassName("wrongPass")[0]
 
-var option = null ;
-
 if (wrongPass && wrongPass.innerText.match("入力したメールアドレスまたはパスワードが間違っています")){
-  alert("ログインできませんでした。");
+  alert("自動ログインできませんでした。設定画面からメールアドレス、パスワードを確認してください。");
 }else{
   if (email){
-//    email.value = localStorage["niconico_email"];
-
-    //真っ先に必要なデータを裏から受け取る
-//    chrome.extension.sendRequest( { 
-      chrome.extension.sendMessage( { 
-    } , function( response ){
-	//alert(response.email);
-        option = response ;
-        //データの準備が整ったらコンテントスクリプトを初期化
-        init();
-    }
-);
-
+    chrome.extension.sendMessage( { 
+      } , function( response ){
+	if(response.niconico_configured){
+          init(response);
+	}else{
+	  if(response.niconico_helpDisplayed == "false"){
+	    alert("Niconico autologin extensionは、このログイン画面を自動処理することができます。Chromeのメニューから「環境設定」-「拡張機能」-「Niconico autologin extension」のオプションからログイン情報を設定してください。");
+	  }
+	}
+      }
+    );
   }
 }
 
